@@ -1,0 +1,49 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: moccasin;
+}
+header{
+    background-size: cover;
+    height:100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: animate 16s ease-in-out infinite;
+}
+main{
+    background-color: rgb(161, 88, 88);
+    margin: auto;
+    padding: 50px;
+    border-radius: 5px;
+    width: 45%;
+}
+.ent{
+    width: 100%;
+    background-color: black;
+    color: violet;
+    padding: 0%;
+    font-weight: bold;
+    position: absolute;
+    top: 54%;
+    opacity: 0.7;
+}
+.logo1 img{
+    position: absolute;
+    left: 30%;
+    opacity: 0.7;
+    }
+.line{
+    color: yellow;
+}
+    @keyframes animate{
+        0%,100%{
+            background-image: url(f1.jpg);
+        }
+        25%{
+            background-image: url(f2.jpg);
+        }
+        50%{
+            background-image: url(f3.jpg);
+        }
+    }
