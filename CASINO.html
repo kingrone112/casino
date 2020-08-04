@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casino</title>
+    <link rel="stylesheet" type="text/css" href="CASINO.css"/>
+</head>
+<body>
+    <header>
+        <div class="ent">
+            <h2><center>BIENVENUE DANS LE CASINO DES ROIS LA OÙ TOUT LE MONDE MÉRITE D'ÊTRE RICHE</center></h2>
+        </div>
+        <div class="logo1">
+            <img src="f2gif.gif">
+        </div>
+    </header>
+    <main>
+        <div class="line">
+            <h2 style="text-align: center;">VENEZ TENTER VOTRE CHANCE AVEC NOTRE NOUVEAU JEU DE CASINO</h2>
+        </div>
+        <div>
+            Numéro:
+            <select name="" id="select">
+              <option value="impair">1</option>
+              <option value="pair">2</option>
+              <option value="impair">3</option>
+              <option value="pair">4</option>
+              <option value="impair">5</option>
+              <option value="pair">6</option>
+              <option value="impair">7</option>
+              <option value="pair">8</option>
+              <option value="impair">9</option>
+              <option value="pair">10</option>
+              <option value="impair">11</option>
+              <option value="pair">12</option>
+              <option value="impair">13</option>
+              <option value="pair">14</option>
+              <option value="impair">15</option>
+              <option value="pair">16</option>
+              <option value="impair">17</option>
+              <option value="pair">18</option>
+              <option value="impair">19</option>
+              <option value="pair">20</option>
+              <option value="impair">21</option>
+              <option value="pair">22</option>
+              <option value="impair">23</option>
+              <option value="pair">24</option>
+              <option value="impair">25</option>
+              <option value="pair">26</option>
+              <option value="impair">27</option>
+              <option value="pair">28</option>
+              <option value="impair">29</option>
+              <option value="pair">30</option>
+              <option value="impair">31</option>
+              <option value="pair">32</option>
+              <option value="impair">33</option>
+              <option value="pair">34</option>
+              <option value="impair">35</option>
+              <option value="pair">36</option>
+            </select>
+            Mise:
+            <input type="number" name="" id="numero" placeholder="saisisser une somme ">
+            <button onclick="jeu();">Go</button>
+            <div id="msg"></div>
+            <div id="somme">
+              <div>Joueur: <span class="argent">100 mille FCFA</span></div>
+              <div>Casino: <span class="argent">0</span></div>
+            </div>
+          </div>
+    </main>
+    <script>
+        let sommeJoueur = 100, sommeOrdinateur = 0, mise, gain, tireOrdinateur;
+    
+        function jeu() {
+          const select = document.getElementById('select');
+          const msg = document.getElementById('msg');
+          const numero = document.getElementById('numero');
+          const argent = document.getElementsByClassName('argent');
+          const number = document.getElementById('number');
+    
+          mise = parseInt(numero.value);
+          if (mise > 0) {
+            tireOrdinateur = Math.floor(Math.random() * Math.floor(11));
+            if (tireOrdinateur === 0) {
+              sommeJoueur -= mise;
+              sommeOrdinateur += mise
+              msg.textContent = tireOrdinateur + " Perdu"
+            } else if (tireOrdinateur == select[select.selectedIndex].text) {
+              gain = mise * 36;
+              sommeJoueur += gain
+              msg.textContent = tireOrdinateur + " Gagné"
+            } else if (tireOrdinateur % 2 === 0 && select.value === 'pair') {
+              gain = mise * 2;
+              sommeJoueur += gain
+              msg.textContent = tireOrdinateur + " Gagné"
+            } else if (tireOrdinateur % 2 != 0 && select.value === 'impair') {
+              gain = mise * 2;
+              sommeJoueur += gain
+              msg.textContent = tireOrdinateur + " Gagné"
+            } else {
+              sommeJoueur -= mise;
+              sommeOrdinateur += mise;
+              msg.textContent = tireOrdinateur + " Perdu"
+            }
+            argent[0].textContent = sommeJoueur + " mille FCFA"
+            if (sommeOrdinateur != 0) 
+            argent[1].textContent = sommeOrdinateur + " mille FCFA"
+          }
+        }
+      </script>
+</body>
+</html>
